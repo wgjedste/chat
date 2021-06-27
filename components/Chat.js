@@ -16,6 +16,7 @@ export default class Chat extends React.Component {
   constructor() {
     super();
     this.state = {
+      
       messages: [],
     };
   }
@@ -79,7 +80,10 @@ export default class Chat extends React.Component {
         />
         { Platform.OS === 'android' ? <KeyboardAvoidingView behavior="height" /> : null
          }
-        
+        <Button
+          title=" GO TO START"
+          onPress={() => this.props.navigation.navigate("Start")}
+        ></Button>
       </View>
       // <View
       //   style={{
@@ -89,10 +93,7 @@ export default class Chat extends React.Component {
       //     backgroundColor: color,
       //   }}
       // >
-      //   <Button
-      //     title=" GO TO START"
-      //     onPress={() => this.props.navigation.navigate("Start")}
-      //   ></Button>
+        
       // </View>
     );
   }

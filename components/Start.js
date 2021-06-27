@@ -16,9 +16,20 @@ export default class Start extends React.Component {
     super(props);
     this.state = {
       name: "",
-      color: "",
+      backgroundColor: "",
     };
   }
+
+  onPressChat = (name, backgroundColor) => {
+    if (name == "") {
+      console.log(name);
+      return Alert.alert('Please Enter a Name .');
+    }
+    this.props.navigation.navigate("Chat", {
+      name: `${name}`,
+      backgroundColor: `${backgroundColor}`,
+    });
+  };
 
   render() {
     return (
@@ -29,54 +40,66 @@ export default class Start extends React.Component {
           </View>
           <View style={styles.box1}>
             <View style={styles.nameBox}>
-              <TextInput
-                style={styles.yourName}
-                onChangeText={(name) => this.setState({ name })}
-                value={this.state.name}
-                placeholder="Enter Your Name"
-              />
+            <TextInput style={styles.inputname}
+            onChangeText={(name) => this.setState({ name })}
+            value={this.state.name}
+            placeHolder='choose a name.'
+          >
+          </TextInput>
             </View>
             <View style={styles.backColorTextBox}>
               <Text style={styles.backColorText}>Choose Background Color:</Text>
             </View>
             <View style={styles.backColorContainer}>
+            <TouchableOpacity accessible={true}
+                accessibilityLabel="More options"
+                accessibilityHint="Lets you choose the color chatinterface."
+                onPress={() => this.setState({ backgroundColor: "#090C08" })}
+                style={styles.chatButton1}>
+              </TouchableOpacity>
+
               <TouchableOpacity
-                style={styles.color1}
-                onPress={() => {
-                  this.setState({ color: "#090C08" });
-                }}
-              ></TouchableOpacity>
+                accessible={true}
+                accessibilityLabel="More options"
+                accessibilityHint="Lets you choose the color chatinterface."
+                onPress={() => this.setState({ backgroundColor: "#474056" })}
+                style={[styles.chatButton1, styles.chatButton2]}>
+              </TouchableOpacity>
+
               <TouchableOpacity
-                style={styles.color2}
-                onPress={() => {
-                  this.setState({ color: "#474056" });
-                }}
-              ></TouchableOpacity>
+                accessible={true}
+                accessibilityLabel="More options"
+                accessibilityHint="Lets you choose the color chatinterface."
+                onPress={() => this.setState({ backgroundColor: "#8A95A5" })}
+                style={[styles.chatButton1, styles.chatButton3]}>
+              </TouchableOpacity>
+
               <TouchableOpacity
-                style={styles.color3}
-                onPress={() => {
-                  this.setState({ color: "#8A95A5" });
-                }}
-              ></TouchableOpacity>
-              <TouchableOpacity
-                style={styles.color4}
-                onPress={() => {
-                  this.setState({ color: "#B9C6AE" });
-                }}
-              ></TouchableOpacity>
+                accessible={true}
+                accessibilityLabel="More options"
+                accessibilityHint="Lets you choose the color chatinterface."
+                onPress={() => this.setState({ backgroundColor: "#B9C6AE" })}
+                style={[styles.chatButton1, styles.chatButton4]}></TouchableOpacity>
             </View>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() =>
-                this.props.navigation.navigate("Chat", {
-                  name: this.state.name,
-                  color: this.state.color,
-                })
-              }
-            >
-              <Text style={styles.buttonText}>Start Chatting</Text>
-                    </TouchableOpacity>
           </View>
+
+
+          <TouchableOpacity
+            accessible={true}
+            accessibilityLabel='Start Chatting'
+            accessibilityHint='Let you start chatting'
+            style={styles.chatbutton}
+            onPress={() => this.onPressChat(this.state.name, this.state.backgroundColor)}
+          >
+            <Text style={styles.chatbuttontext}>Start Chatting</Text>
+          </TouchableOpacity>
+
+
+
+          {Platform.OS === 'android' ? <KeyboardAvoidingView behavior="height" /> : null
+        }
+
+
         </View>
       </ImageBackground>
     );
@@ -129,7 +152,7 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     borderColor: "#757083",
   },
-  yourName: {
+  inputname: {
     fontSize: 16,
     fontWeight: "300",
     color: "#757083",
@@ -159,7 +182,7 @@ const styles = StyleSheet.create({
     marginLeft: "auto",
     width: "88%",
   },
-  color1: {
+  chatButton1: {
     backgroundColor: "#090C08",
     width: 40,
     height: 40,
@@ -167,7 +190,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
   },
-  color2: {
+  chatButton2: {
     backgroundColor: "#474056",
     width: 40,
     height: 40,
@@ -176,7 +199,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     marginLeft: 10,
   },
-  color3: {
+  chatButton3: {
     backgroundColor: "#8A95A5",
     width: 40,
     height: 40,
@@ -186,7 +209,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 10,
   },
-  color4: {
+  chatButton4: {
     backgroundColor: "#B9C6AE",
     width: 40,
     height: 40,
@@ -194,7 +217,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
   },
-  button: {
+  chatbutton: {
     backgroundColor: "#757083",
     flexDirection: "column",
     position: "relative",
@@ -206,7 +229,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  buttonText: {
+  chatButtonText: {
     fontSize: 16,
     fontWeight: "600",
     color: "#FFFFFF",
