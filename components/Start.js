@@ -6,6 +6,9 @@ import {
   View,
   Text,
   TextInput,
+  Platform,
+  Alert,
+  KeyboardAvoidingView
 } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
@@ -34,6 +37,7 @@ export default class Start extends React.Component {
   render() {
     return (
       <ImageBackground source={image} style={styles.image}>
+
         <View style={styles.container}>
           <View style={styles.titleContainer}>
             <Text style={styles.title}>Welcome to the Chat App!</Text>
