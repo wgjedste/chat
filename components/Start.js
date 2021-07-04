@@ -11,6 +11,8 @@ import {
   KeyboardAvoidingView
 } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import NetInfo from '@react-native-community/netinfo';
+
 
 const image = require("../assets/Background-Image.png");
 
