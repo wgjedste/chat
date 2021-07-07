@@ -1,4 +1,5 @@
-# chat-app
+# Chat-App
+A chat app built using React Native, that allows users to send messages, images and locations.
 
 
 # Key Features
