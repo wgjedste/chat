@@ -13,3 +13,11 @@ A chat app built using React Native, that allows users to send messages, images 
 - Google Firebase
 - Andriod Studio
 - Gifted Chat Library
+
+
+# Getting Started
+* Make sure you have Node.js running in your server
+`node -v`
+
+* Install Expo
+`npm install expo-cli --global`
