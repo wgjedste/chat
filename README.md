@@ -23,3 +23,7 @@ A chat app built using React Native, that allows users to send messages, images 
 `npm install expo-cli --global`
   - You can also install Expo through your mobile device through the app store
 
+Simulators for iOS and Android are also necessary
+- [iOS Simulator](https://docs.expo.io/workflow/ios-simulator/ "iOS Simulator")
+- [Android Simulator](https://docs.expo.io/workflow/android-studio-emulator/)
+
