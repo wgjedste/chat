@@ -27,3 +27,5 @@ A chat app built using React Native, that allows users to send messages, images 
     - [iOS Simulator](https://docs.expo.io/workflow/ios-simulator/ "iOS Simulator")
     - [Android Simulator](https://docs.expo.io/workflow/android-studio-emulator/)
 
+  - After starting you're server `expo start` you launch your simulator/emulator by typing `a` (Android) or `i` (iOS)
+
